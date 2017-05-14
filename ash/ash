@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+from sys import *
+import os
+
+app = str(argv[1])
+name = str(argv[2])
+version = str(argv[3])
+iconfile = str(argv[4])
+
+f = open("compiler/build.py", "w")
+f.write("'''\nUsage IN TERMINAL .. :\n\tpython build.py py2app\n'''\n\nfrom setuptools import setup\n\nAPP = [\""+app+"\"]\nDATA_FILES = [('', ['images']), ('', ['Audio'])]\nOPTIONS = {\n\t'iconfile': \""+iconfile+"\"\n}\n\nsetup(\n\tname = \""+name+"\",\n\tversion = \""+version+"\",\n\tapp = APP,\n\tdata_files = DATA_FILES,\n\toptions = {'py2app': OPTIONS},\n\t  setup_requires = ['py2app']\n)")
+
+os.system("python compiler/build.py py2app")
