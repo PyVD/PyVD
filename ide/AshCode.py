@@ -156,6 +156,7 @@ class MainApplication():
 		self.open_file(f)
 		lbl.config(background="#dddddd")
 		self.prev = lbl
+		self.check(self)
 	def installcofee(self):
 		if os.path.exists(os.path.join(self.dirname, "Cofee")) == False:
 			cwd = os.getcwd()
